@@ -1,0 +1,6 @@
+@ApiAchadosEPerdidos_HostAddress = http://localhost:5047
+
+GET {{ApiAchadosEPerdidos_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
