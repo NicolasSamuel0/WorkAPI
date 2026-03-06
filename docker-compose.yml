@@ -1,0 +1,67 @@
+# =============================================================================
+# DOCKER COMPOSE - Orquestração dos serviços: MySQL + API
+# =============================================================================
+# Um único comando (docker compose up) sobe o banco e a aplicação, já configurados
+# para se comunicarem. Útil para desenvolvimento e para aulas.
+#
+# Uso:
+#   docker compose up -d          → sobe em segundo plano
+#   docker compose up --build     → reconstrói a API e sobe
+#   docker compose down           → para e remove os containers
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # MySQL 8: banco de dados
+  # ---------------------------------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: minhaprimeiraapi-mysql
+    restart: unless-stopped
+    environment:
+      # Senha do usuário root (em produção use secrets)
+      MYSQL_ROOT_PASSWORD: root
+      # Nome do banco que será criado automaticamente na primeira subida
+      MYSQL_DATABASE: MinhaPrimeiraApi
+      # Usuário e senha opcionais (podemos usar root para didática)
+      MYSQL_USER: api
+      MYSQL_PASSWORD: api
+    ports:
+      # Expõe a porta 3306 do container para o host (acesso externo, ex.: cliente MySQL)
+      - "3306:3306"
+    volumes:
+      # Persistir dados do MySQL em um volume nomeado (não se perde ao fazer down)
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      # Docker usa isso para saber quando o MySQL está pronto para aceitar conexões
+      # A API (depends_on) espera este healthcheck passar antes de subir
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # ---------------------------------------------------------------------------
+  # API ASP.NET Core: nossa aplicação
+  # ---------------------------------------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minhaprimeiraapi-api
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      # Connection string: Server= nome do serviço no docker-compose (rede interna)
+      # Em Docker Compose, os serviços se resolvem pelo nome do serviço (mysql, api)
+      ConnectionStrings__DefaultConnection: "Server=mysql;Port=3306;Database=MinhaPrimeiraApi;User=root;Password=root;"
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "8080:8080"
+
+# Volumes nomeados: os dados do MySQL ficam guardados aqui
+volumes:
+  mysql_data:
