@@ -1,10 +1,10 @@
-version: '3.9'
+version: "3.9"
 
 services:
 
   api:
     build: .
-    container_name: minha_api
+    container_name: api_achados_perdidos
     ports:
       - "5107:8080"
     depends_on:
@@ -16,7 +16,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: minhaapi
+      MYSQL_DATABASE: achadosperdidos
     ports:
       - "3306:3306"
     volumes:

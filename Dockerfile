@@ -4,10 +4,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["MinhaPrimeiraApi.csproj", "."]
+COPY ApiAchadosEPerdidos/ApiAchadosEPerdidos.csproj ApiAchadosEPerdidos/
+WORKDIR /src/ApiAchadosEPerdidos
+
 RUN dotnet restore
 
-COPY . .
+COPY ApiAchadosEPerdidos/. .
+
 RUN dotnet publish -c Release -o /app/publish
 
 # ===============================
@@ -22,4 +25,4 @@ ENV ASPNETCORE_URLS=http://+:8080
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "MinhaPrimeiraApi.dll"]
+ENTRYPOINT ["dotnet", "ApiAchadosEPerdidos.dll"]
