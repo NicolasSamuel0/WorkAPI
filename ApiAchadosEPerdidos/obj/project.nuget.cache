@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TpKxsYI13gU=",
+  "dgSpecHash": "WZdUhmJfCWw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Unipac\\Downloads\\MinhaPrimeiraApi\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
+  "projectFilePath": "C:\\Users\\NICOLAS\\WorkAPI\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Unipac\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
-    "C:\\Users\\Unipac\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\NICOLAS\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\NICOLAS\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

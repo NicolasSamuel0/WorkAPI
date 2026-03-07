@@ -83,19 +83,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Unipac\\.nuget\\packages\\": {}
+    "C:\\Users\\NICOLAS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Unipac\\Downloads\\MinhaPrimeiraApi\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
+      "projectUniqueName": "C:\\Users\\NICOLAS\\WorkAPI\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
       "projectName": "ApiAchadosEPerdidos",
-      "projectPath": "C:\\Users\\Unipac\\Downloads\\MinhaPrimeiraApi\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
-      "packagesPath": "C:\\Users\\Unipac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Unipac\\Downloads\\MinhaPrimeiraApi\\ApiAchadosEPerdidos\\obj\\",
+      "projectPath": "C:\\Users\\NICOLAS\\WorkAPI\\ApiAchadosEPerdidos\\ApiAchadosEPerdidos.csproj",
+      "packagesPath": "C:\\Users\\NICOLAS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\NICOLAS\\WorkAPI\\ApiAchadosEPerdidos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Unipac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\NICOLAS\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
